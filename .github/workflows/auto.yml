@@ -1,6 +1,7 @@
 name: juejinCheckIn
 
 on:
+  workflow_dispatch:
   schedule:
     # 每天9点执行 时间格式 minute hour day month week 设置的时间是UTC 不是北京时间 需要+8
     - cron: '0 1 * * *'
