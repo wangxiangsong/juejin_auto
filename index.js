@@ -19,7 +19,7 @@ const config = {
       user: '951606897@qq.com',
       from: '951606897@qq.com',
       to: '951606897@qq.com',
-      pass: 'ltqvyeglpdekbcdi',
+      pass: 'atjbtcmqbloabcff',
     },
   },
 };
