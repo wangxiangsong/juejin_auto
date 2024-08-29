@@ -13,7 +13,7 @@ const config = {
     getLotteryConfig: '/growth_api/v1/lottery_config/get',
     drawLottery: '/growth_api/v1/lottery/draw',
   },
-  cookie: `__tea_cookie_tokens_2608=%257B%2522web_id%2522%253A%25227252909595475428867%2522%252C%2522user_unique_id%2522%253A%25227252909595475428867%2522%252C%2522timestamp%2522%253A1688699623514%257D; _tea_utm_cache_2018={%22utm_source%22:%22gold_browser_extension%22}; _tea_utm_cache_2608={%22utm_source%22:%22gold_browser_extension%22}; s_v_web_id=verify_lximxmlu_IAzEiabt_VMpx_4AjF_8PWg_ujtaSJpO2sdJ; _jj_ext=1; _tea_utm_cache_576092=undefined; passport_csrf_token=32784e98ca8ed696e7eb604e6c15138a; passport_csrf_token_default=32784e98ca8ed696e7eb604e6c15138a; msToken=VT-jS02DRMxMCeW4Dn0cdglMDxldnFvmWVnxJrcLmH_yGFnFXqEoiqN-bKAFVidgiK_vto8EasNdFx0Gts07QnloDhg-dvDhkJY7-37JgHio2Eoi_wfQ-ivTxULU0C0=`,
+  cookie: `__tea_cookie_tokens_2608=%257B%2522web_id%2522%253A%25227065682127786575392%2522%252C%2522user_unique_id%2522%253A%25227065682127786575392%2522%252C%2522timestamp%2522%253A1645107327865%257D; _jj_ext=1; s_v_web_id=verify_lz0yt78v_Fwtt9CXM_N2KK_4GK5_AVIz_NiWjdGtMIRs8; _tea_utm_cache_2608={%22utm_source%22:%22community%22%2C%22utm_medium%22:%22marscode%22}; _tea_utm_cache_2018={%22utm_source%22:%22community%22%2C%22utm_medium%22:%22marscode%22}; _tea_utm_cache_576092={%22utm_source%22:%22community%22%2C%22utm_medium%22:%22marscode%22}`,
   email: {
     qq: {
       user: '951606897@qq.com',
