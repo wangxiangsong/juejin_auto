@@ -1,29 +1,35 @@
-name: juejinCheckIn
+name: Juejin daily check-in
 
 on:
   workflow_dispatch:
   schedule:
-    # 每天9点执行 时间格式 minute hour day month week 设置的时间是UTC 不是北京时间 需要+8
+    # GitHub Actions 使用 UTC；23:00 UTC 即次日北京时间 07:00。
     - cron: '0 23 * * *'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  start:
-    # 运行环境为最新版的Ubuntu
-    runs-on: ubuntu-latest
+permissions:
+  contents: read
 
+concurrency:
+  group: juejin-daily-check-in
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      JUEJIN_COOKIE: ${{ secrets.JUEJIN_COOKIE }}
+      QQ_EMAIL_USER: ${{ secrets.QQ_EMAIL_USER }}
+      QQ_EMAIL_AUTH_CODE: ${{ secrets.QQ_EMAIL_AUTH_CODE }}
+      QQ_EMAIL_TO: ${{ secrets.QQ_EMAIL_TO }}
     steps:
       - uses: actions/checkout@v4
-
-      #安装node.js
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-
-      # 安装依赖并且执行脚本
-      - name: npm install
-        run: npm install
-
-      - name: Start task
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check in and draw lottery
         run: node index.js
