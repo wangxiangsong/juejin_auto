@@ -50,11 +50,17 @@ function createJuejinClient(cookie) {
       throw new Error(`请求 ${path} 失败：${formatError(error)}`);
     }
 
+    const contentType = response.headers.get('content-type') || '未提供';
+    const body = await response.text();
     let payload;
     try {
-      payload = await response.json();
+      payload = JSON.parse(body);
     } catch {
-      throw new Error(`请求 ${path} 返回了无法解析的响应（HTTP ${response.status}）`);
+      // 仅保留短片段以定位网关/风控页；不输出请求头或 Cookie。
+      const preview = body.replace(/\s+/g, ' ').trim().slice(0, 200) || '（空响应）';
+      throw new Error(
+        `请求 ${path} 返回了无法解析的响应（HTTP ${response.status}，Content-Type: ${contentType}，响应片段: ${preview}）`
+      );
     }
 
     if (!response.ok) throw new Error(`请求 ${path} 失败（HTTP ${response.status}）`);
